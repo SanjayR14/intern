@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ponnusamy Elite - Authentic Chettinad Cuisine</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Global Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1a1a1a; /* Default dark heading */
+        }
+
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.5rem; }
+        h4 { font-size: 1.1rem; margin-bottom: 0.5rem;}
+
+
+        p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        a {
+            text-decoration: none;
+            color: #c8a46a; /* Ponnusamy Accent color - adjusted gold */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #f0b90b; /* SPR Gold accent */
+            color: #1a1a1a;
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #d4a30a;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-dark {
+            background-color: #1a1a1a; /* Dark background */
+            color: #f4f4f4;
+        }
+        .section-dark h2, .section-dark h3, .section-dark h4 {
+           color: #fff;
+        }
+        .section-dark p {
+           color: #ccc;
+        }
+         .section-dark a {
+            color: #f0b90b; /* Use SPR Gold on dark backgrounds */
+         }
+
+        .section-light-gray {
+            background-color: #f8f9fa;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- Header / Navigation (Reused from SPR) --- */
+        .main-header {
+            background-color: #1a1a1a;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { /* SPR Logo */
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            border: 2px solid #f0b90b;
+            padding: 5px 10px;
+            line-height: 1;
+            background-color: #f0b90b;
+            color: #1a1a1a;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-nav ul li {
+            margin-left: 20px;
+        }
+
+        .main-nav ul li a {
+            color: #f4f4f4;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav ul li a:hover {
+            color: #f0b90b;
+        }
+
+        .main-nav .btn { /* Get Started Button */
+            margin-left: 20px;
+            padding: 8px 20px;
+        }
+
+        /* --- Hero Image --- */
+        .hero-image-section {
+            padding: 0; /* Remove padding */
+            line-height: 0; /* Remove gap below image */
+        }
+        .hero-image-section img {
+            width: 100%;
+            height: auto;
+            max-height: 65vh; /* Limit height */
+            object-fit: cover;
+        }
+
+        /* --- Brand Intro --- */
+        .brand-intro {
+            padding: 40px 0;
+            text-align: center;
+        }
+        .brand-logo img {
+            max-width: 180px; /* Adjust logo size */
+            margin: 0 auto 20px auto;
+        }
+        .brand-intro h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .brand-intro .subtitle {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #c8a46a; /* Accent color */
+            margin-bottom: 20px;
+        }
+        .brand-intro p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: #666;
+        }
+
+        /* --- Image Gallery Strip --- */
+        .image-gallery-strip {
+            padding: 30px 0;
+            background-color: #fff;
+        }
+        .image-gallery-strip .container {
+             display: flex;
+             justify-content: space-between; /* Or space-around */
+             gap: 15px;
+             overflow-x: auto; /* Add scroll on smaller screens if needed */
+             padding-bottom: 10px; /* Space for potential scrollbar */
+        }
+        .gallery-item img {
+            width: auto; /* Let height control */
+            height: 150px; /* Fixed height for uniformity */
+            border-radius: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        /* --- About The Brand --- */
+        #about-brand .about-content {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr; /* Text wider than image */
+            gap: 40px;
+            align-items: center;
+        }
+        #about-brand h2 {
+            margin-bottom: 20px;
+        }
+        #about-brand img {
+            border-radius: 8px;
+            border: 4px solid #444; /* Dark border for contrast */
+        }
+
+        /* --- Signature Dishes --- */
+        #signature-dishes h2, #signature-offerings h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .dish-card {
+            text-align: center;
+        }
+        .dish-card img {
+            border-radius: 8px;
+            margin-bottom: 15px;
+            height: 200px; /* Fixed height */
+            width: 100%;
+            object-fit: cover;
+            border: 2px solid transparent; /* Base border */
+            transition: transform 0.3s ease;
+        }
+        .dish-card:hover img {
+            transform: scale(1.03);
+        }
+        .dish-card h4 {
+             font-size: 1.2rem;
+             margin-bottom: 8px;
+        }
+         .dish-card p {
+             font-size: 0.9rem;
+             color: #bbb;
+         }
+         .highlighted-dish img {
+            border: 3px solid #8a2be2; /* Purple highlight */
+            box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
+         }
+
+        /* --- Signature Offerings --- */
+        #signature-offerings .subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: -30px auto 40px auto;
+            color: #ccc;
+        }
+        .offering-card {
+            text-align: center;
+        }
+         .offering-card img {
+            border-radius: 8px;
+            margin-bottom: 15px;
+            height: 220px; /* Fixed height */
+            width: 100%;
+            object-fit: cover;
+             transition: transform 0.3s ease;
+         }
+         .offering-card:hover img {
+             transform: scale(1.03);
+         }
+         .offering-card p { /* Caption below image */
+             font-weight: 500;
+             color: #f0b90b; /* Gold text */
+             font-size: 1.1rem;
+             margin-top: 5px;
+         }
+
+        /* --- Business Opportunities Banner --- */
+        .opportunities-banner {
+            background-color: #f0b90b; /* Gold background */
+            color: #1a1a1a; /* Dark text */
+            padding: 15px 0;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            white-space: nowrap;
+            overflow: hidden; /* Hide overflow if animating */
+        }
+        .opportunities-banner span {
+            margin: 0 10px; /* Space around plus */
+            opacity: 0.7;
+        }
+
+        /* --- Why Choose Us --- */
+        #why-choose-us h2 {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .choice-box {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 30px 20px;
+            text-align: center;
+            background-color: #fff;
+            transition: box-shadow 0.3s ease;
+        }
+        .choice-box:hover {
+             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .choice-icon {
+            font-size: 2.5rem; /* Placeholder size */
+            color: #c8a46a; /* Accent gold */
+            margin-bottom: 15px;
+            /* Replace with actual icon styles */
+            font-weight: bold;
+        }
+        .choice-box h4 {
+             color: #333;
+             font-size: 1.2rem;
+             margin-bottom: 10px;
+        }
+         .choice-box p {
+             font-size: 0.95rem;
+             color: #666;
+             margin-bottom: 0;
+         }
+
+        /* --- Bring Chettinad Heritage --- */
+        #bring-heritage {
+            text-align: center;
+            position: relative; /* For positioning flanking images */
+            padding-top: 80px; /* Space for top image */
+            padding-bottom: 80px; /* Space for bottom image */
+        }
+         #bring-heritage h2 {
+             font-size: 2.5rem;
+             margin-bottom: 15px;
+         }
+          #bring-heritage .subtitle {
+             max-width: 700px;
+             margin: 0 auto 40px auto;
+             color: #666;
+         }
+         .heritage-image {
+            position: absolute;
+            max-width: 180px; /* Size of flanking food images */
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            border: 4px solid #fff;
+         }
+         .heritage-image-top {
+             top: -60px; /* Adjust position */
+             left: 50px;
+         }
+          .heritage-image-bottom {
+             bottom: -60px; /* Adjust position */
+             right: 50px;
+         }
+
+        .heritage-features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px; /* Space below text */
+        }
+        .feature-box {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 25px 20px;
+            background-color: #fff;
+            text-align: center;
+             transition: box-shadow 0.3s ease;
+        }
+         .feature-box:hover {
+             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .feature-box h4 {
+            color: #333;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .feature-box p {
+             font-size: 0.95rem;
+             color: #666;
+             margin-bottom: 0;
+        }
+
+
+        /* --- Contact Form Section (Reused from SPR) --- */
+        #contact-form-section {
+             padding: 60px 0;
+        }
+        #contact-form-section .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr; /* Adjust ratio as needed */
+            gap: 50px;
+            align-items: flex-start;
+        }
+        .contact-info h3 {
+            margin-bottom: 20px;
+             font-size: 1.6rem;
+        }
+        .contact-info p {
+            margin-bottom: 25px;
+            color: #666;
+        }
+        .contact-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #444;
+        }
+        .contact-details p {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #777;
+            line-height: 1.5;
+        }
+
+        .contact-form form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="tel"]:focus {
+             border-color: #f0b90b; /* Use SPR Gold for focus */
+             outline: none;
+             box-shadow: 0 0 0 2px rgba(240, 185, 11, 0.2);
+        }
+         .contact-form .btn { /* Submit button */
+             width: 100%;
+             background-color: #1a1a1a;
+             color: #f0b90b; /* Gold text on dark button */
+             padding: 12px;
+             font-size: 1.1rem;
+             border-radius: 5px;
+         }
+         .contact-form .btn:hover {
+             background-color: #333;
+         }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* --- Footer (Reused from SPR) --- */
+        .main-footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 50px 0 30px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .footer-col .footer-logo { /* SPR Footer Logo */
+             font-size: 1.5rem;
+             font-weight: 700;
+             color: #fff;
+             border: 2px solid #f0b90b;
+             padding: 4px 8px;
+             line-height: 1;
+             background-color: #f0b90b;
+             color: #1a1a1a;
+             display: inline-block;
+             margin-bottom: 15px;
+        }
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a {
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+        .footer-col ul li a:hover {
+            color: #f0b90b;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .grid-2, .grid-3, .grid-4, .footer-grid, .heritage-features {
+                grid-template-columns: 1fr 1fr; /* Adjust grid for tablets */
+            }
+             #about-brand .about-content {
+                grid-template-columns: 1fr; /* Stack about section */
+                text-align: center;
+             }
+             #about-brand img { max-width: 70%; margin: 30px auto 0 auto;}
+             #contact-form-section .contact-wrapper { grid-template-columns: 1fr; }
+             .form-grid { grid-template-columns: 1fr; }
+              #bring-heritage { padding-top: 20px; padding-bottom: 20px; } /* Reduce padding */
+              .heritage-image { display: none; } /* Hide flanking images on tablet/mobile */
+              .image-gallery-strip .container { justify-content: flex-start; } /* Align gallery items left */
+
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            .main-header .container { flex-direction: column; align-items: flex-start;}
+            .main-nav { margin-top: 15px; width: 100%;}
+            .main-nav ul { flex-direction: column; align-items: flex-start; width: 100%;}
+            .main-nav ul li { margin: 5px 0; width: 100%;}
+            .main-nav ul li a { display: block; padding: 5px 0;}
+            .main-nav .btn { margin: 10px 0 0 0; width: auto;}
+            .grid-2, .grid-3, .grid-4, .footer-grid, .heritage-features {
+                grid-template-columns: 1fr; /* Stack everything */
+            }
+            .dish-card img { height: 220px; } /* Adjust image height */
+            .offering-card img { height: 250px; }
+            .footer-grid { text-align: center; }
+            .footer-col .footer-logo { margin: 0 auto 15px auto; }
+            .opportunities-banner { font-size: 1rem; letter-spacing: 1px; }
+            .brand-logo img { max-width: 140px; }
+            .brand-intro h2 { font-size: 2rem; }
+            #bring-heritage h2 { font-size: 2rem; }
+
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header (Reused from SPR) -->
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">SPR</a> <!-- SPR Logo -->
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Sign In</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#" class="btn">Get Started</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Image -->
+        <section class="hero-image-section">
+            <img src="https://via.placeholder.com/1500x500/cccccc/808080?text=Ponnusamy+Elite+Interior" alt="Ponnusamy Elite Restaurant Interior">
+        </section>
+
+        <!-- Brand Intro -->
+        <section class="brand-intro section">
+            <div class="container">
+                <div class="brand-logo">
+                    <img src="https://via.placeholder.com/180x80/eeeeee/aaaaaa?text=Ponnusamy+Elite+Logo" alt="The Ponnusamy Elite Logo">
+                </div>
+                <h2>THE PONNUSAMY ELITE</h2>
+                <p class="subtitle">Authentic Chettinad Cuisine with a legacy of Excellence</p>
+                <p>
+                    Experience the rich culinary heritage of Chettinad at The Ponnusamy Elite. We bring you time-honoured recipes passed down through generations, prepared with the freshest ingredients and traditional techniques. Indulge in a symphony of flavors that define South India's most celebrated cuisine.
+                </p>
+            </div>
+        </section>
+
+         <!-- Image Gallery Strip -->
+        <section class="image-gallery-strip">
+            <div class="container">
+                <div class="gallery-item"><img src="https://via.placeholder.com/250x150/cccccc/808080?text=Dining+Area" alt="Dining Area"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/250x150/cccccc/808080?text=Chettinad+Thali+1" alt="Chettinad Thali Meal"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/250x150/cccccc/808080?text=Chettinad+Thali+2" alt="Another Chettinad Meal"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/250x150/cccccc/808080?text=Restaurant+Decor" alt="Restaurant Decor Details"></div>
+                 <div class="gallery-item"><img src="https://via.placeholder.com/250x150/cccccc/808080?text=Wall+Art" alt="Traditional Wall Art"></div>
+                 <!-- Add more items if needed -->
+            </div>
+        </section>
+
+        <!-- About The Brand -->
+        <section id="about-brand" class="section section-dark">
+            <div class="container about-content">
+                 <div class="text-content">
+                    <h2>ABOUT THE BRAND</h2>
+                    <p>Ponnusamy has been synonymous with authentic South Indian, especially Chettinad, cuisine for decades. The Ponnusamy Elite is an extension of this legacy, offering an elevated dining experience while staying true to our roots. Our journey began with a passion for preserving traditional recipes and sharing the unique flavours of Chettinad with the world.</p>
+                    <p>We meticulously source our spices and ingredients, ensuring quality and authenticity in every dish. Our chefs are masters of Chettinad cooking, bringing expertise and dedication to the kitchen. At Ponnusamy Elite, we invite you to savor the true taste of tradition in a refined and welcoming atmosphere.</p>
+                </div>
+                <div class="image-content">
+                    <img src="https://via.placeholder.com/500x350/555555/eeeeee?text=Historic+Photo+or+Decor" alt="Ponnusamy Brand History Image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Signature Dishes -->
+        <section id="signature-dishes" class="section section-dark">
+            <div class="container">
+                <h2>SIGNATURE DISHES</h2>
+                <div class="grid-4">
+                    <div class="dish-card">
+                        <img src="https://via.placeholder.com/300x200/666666/eeeeee?text=Mutton+Biryani" alt="Mutton Biryani">
+                        <h4>Mutton Biryani</h4>
+                        <p>Aromatic basmati rice cooked with tender mutton and exotic spices.</p>
+                    </div>
+                     <div class="dish-card">
+                        <img src="https://via.placeholder.com/300x200/666666/eeeeee?text=Chicken+Chettinad" alt="Chicken Chettinad">
+                        <h4>Chicken Chettinad</h4>
+                        <p>Succulent chicken cooked in a fiery, freshly ground Chettinad masala.</p>
+                    </div>
+                     <div class="dish-card">
+                        <img src="https://via.placeholder.com/300x200/666666/eeeeee?text=Fish+Curry" alt="Chettinad Fish Curry">
+                        <h4>Chettinad Fish Curry</h4>
+                        <p>Tangy and spicy fish curry, a hallmark of coastal Chettinad cuisine.</p>
+                    </div>
+                     <div class="dish-card highlighted-dish"> <!-- Added highlight class -->
+                        <img src="https://via.placeholder.com/300x200/666666/eeeeee?text=Veg+Meal+Thali" alt="Vegetarian Meal Thali">
+                        <h4>Veg Meal Thali</h4>
+                        <p>A wholesome platter featuring a variety of authentic vegetarian dishes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signature Offerings -->
+        <section id="signature-offerings" class="section section-dark">
+            <div class="container">
+                 <h2>SIGNATURE OFFERINGS</h2>
+                 <p class="subtitle">At Ponnusamy Elite, enjoy the traditional flavors served with authenticity and an unforgettable dining experience. Taste the best of Chettinad today!</p>
+                 <div class="grid-3">
+                     <div class="offering-card">
+                         <img src="https://via.placeholder.com/400x220/777777/eeeeee?text=Offering+Thali+1" alt="Chettinad Delights">
+                         <p>Chettinad Delights</p>
+                     </div>
+                      <div class="offering-card">
+                         <img src="https://via.placeholder.com/400x220/777777/eeeeee?text=Offering+Spread" alt="Seafood Specialities">
+                         <p>Seafood Specialities</p>
+                     </div>
+                       <div class="offering-card">
+                         <img src="https://via.placeholder.com/400x220/777777/eeeeee?text=Offering+Thali+2" alt="Vegetarian Varieties">
+                         <p>Vegetarian Varieties</p>
+                     </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Business Opportunities Banner -->
+        <section class="opportunities-banner">
+            BUSINESS OPPORTUNITIES <span>+</span> BUSINESS OPPORTUNITIES <span>+</span> BUSINESS OPPORTUNITIES
+        </section>
+
+         <!-- Why Choose Us -->
+        <section id="why-choose-us" class="section section-light-gray">
+            <div class="container">
+                <h2>WHY CHOOSE US</h2>
+                <div class="grid-3">
+                    <div class="choice-box">
+                        <div class="choice-icon">[Icon]</div> <!-- Replace with actual icon -->
+                        <h4>Fresh Ingredients</h4>
+                        <p>We source the finest, freshest ingredients daily to ensure the highest quality.</p>
+                    </div>
+                     <div class="choice-box">
+                        <div class="choice-icon">[Icon]</div> <!-- Replace with actual icon -->
+                        <h4>Traditional Recipes</h4>
+                        <p>Authentic Chettinad recipes passed down through generations, full of robust flavors.</p>
+                    </div>
+                     <div class="choice-box">
+                         <div class="choice-icon">[Icon]</div> <!-- Replace with actual icon -->
+                        <h4>Skilled Chefs</h4>
+                        <p>Our expert chefs masterfully prepare each dish with passion and precision.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bring Chettinad Heritage -->
+        <section id="bring-heritage" class="section">
+            <div class="container">
+                 <!-- Flanking Images -->
+                 <img src="https://via.placeholder.com/180x180/cccccc/808080?text=Food+1" alt="Chettinad Food" class="heritage-image heritage-image-top">
+                 <img src="https://via.placeholder.com/180x180/cccccc/808080?text=Food+2" alt="Chettinad Food" class="heritage-image heritage-image-bottom">
+
+                <h2>Bring Chettinad Heritage To Your City!</h2>
+                <p class="subtitle">
+                   We are expanding! Partner with a legendary brand known for its authentic taste and quality. Leverage our established reputation, operational expertise, and comprehensive support to launch your own successful Ponnusamy Elite franchise.
+                </p>
+
+                <div class="heritage-features grid-3">
+                    <div class="feature-box">
+                        <h4>Proven Business Model</h4>
+                        <p>Benefit from our time-tested strategies and operational framework.</p>
+                    </div>
+                     <div class="feature-box">
+                        <h4>Comprehensive Training</h4>
+                        <p>Receive extensive training on recipes, operations, and management.</p>
+                    </div>
+                     <div class="feature-box">
+                        <h4>Operational Support</h4>
+                        <p>Ongoing guidance and support from our experienced team to ensure your success.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section (Reused from SPR) -->
+        <section id="contact-form-section" class="section section-light-gray">
+            <div class="container contact-wrapper">
+                <div class="contact-info">
+                    <h3>Become an Entrepreneur Today – Grow Your Business with SPR Global</h3>
+                    <p>Ready to explore the Ponnusamy Elite franchise opportunity? Connect with our parent company, SPR Global, to learn more about partnership details, investment requirements, and how we can help you bring the taste of Chettinad to your community.</p>
+                    <div class="contact-details">
+                        <h4>Corporate Office (SPR Global)</h4>
+                        <p>123 Global Avenue,<br>Innovation City, IN 45678</p>
+                        <h4>Email</h4>
+                        <p>franchise@sprglobal.com</p> <!-- Adjusted Email -->
+                         <h4>Phone</h4>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                     <form action="#" method="POST">
+                         <div class="form-grid">
+                             <div class="form-group">
+                                 <label for="name">Name*</label>
+                                 <input type="text" id="name" name="name" required>
+                             </div>
+                             <div class="form-group">
+                                 <label for="phone">Phone Number*</label>
+                                 <input type="tel" id="phone" name="phone" required>
+                             </div>
+                         </div>
+                         <div class="form-group">
+                            <label for="email">Email*</label>
+                            <input type="email" id="email" name="email" required>
+                         </div>
+                         <div class="form-group">
+                            <label for="subject">Subject (Optional)</label>
+                            <input type="text" id="subject" name="subject" placeholder="e.g., Franchise Inquiry">
+                         </div>
+                         <button type="submit" class="btn">Submit Inquiry</button> <!-- Adjusted Button Text -->
+                     </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (Reused from SPR) -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">SPR</a> <!-- SPR Footer Logo -->
+                    <p>SPR Global: Empowering entrepreneurs worldwide with resources, mentorship, and a global network for sustainable growth and innovation.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>QUICK LINKS</h4>
+                    <ul>
+                        <li><a href="#">SPR Home</a></li>
+                        <li><a href="#">About SPR</a></li>
+                        <li><a href="#">Ponnusamy Elite</a></li>
+                         <li><a href="#">Other Ventures</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-col">
+                    <h4>LEGAL</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Franchise Disclaimer</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-col">
+                    <h4>CONTACT (SPR GLOBAL)</h4>
+                    <p>123 Global Avenue,<br>Innovation City, IN 45678</p>
+                    <p>Email: info@sprglobal.com<br>Phone: +1 (555) 123-4567</p>
+                     <!-- Add social media icons here -->
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 SPR Global & The Ponnusamy Elite. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript can go here -->
+    <script>
+        // console.log("Ponnusamy Elite page loaded");
+    </script>
+
+</body>
+</html>

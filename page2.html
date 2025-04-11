@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FunzXtreme - Where Adventure Meets Endless Fun</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Global Reset & Base Styles (Same as previous) --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', Arial, sans-serif; font-size: 16px; line-height: 1.6; color: #333; background-color: #fff; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        h1, h2, h3, h4, h5, h6 { font-weight: 600; margin-bottom: 1rem; color: #1a1a1a; }
+        h2 { font-size: 2.2rem; } h3 { font-size: 1.5rem; } h4 { font-size: 1.1rem; margin-bottom: 0.5rem;}
+        p { margin-bottom: 1rem; color: #555; }
+        a { text-decoration: none; color: #c8a46a; /* Default Accent */ }
+        img { max-width: 100%; height: auto; display: block; }
+        .btn { display: inline-block; padding: 10px 25px; background-color: #f0b90b; /* SPR Gold */ color: #1a1a1a; border: none; border-radius: 5px; font-weight: 500; transition: background-color 0.3s ease, color 0.3s ease; cursor: pointer; text-align: center; }
+        .btn:hover { background-color: #d4a30a; }
+        .section { padding: 60px 0; }
+        .section-dark { background-color: #1a1a1a; color: #f4f4f4; }
+        .section-dark h2, .section-dark h3, .section-dark h4 { color: #fff; }
+        .section-dark p { color: #ccc; }
+        .section-dark a { color: #f0b90b; }
+        .section-light-gray { background-color: #f8f9fa; }
+        .text-center { text-align: center; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        /* --- Header / Navigation (SPR) --- */
+        .main-header { background-color: #1a1a1a; padding: 10px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .main-header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 700; border: 2px solid #f0b90b; padding: 5px 10px; line-height: 1; background-color: #f0b90b; color: #1a1a1a; }
+        .main-nav ul { list-style: none; display: flex; align-items: center; }
+        .main-nav ul li { margin-left: 20px; }
+        .main-nav ul li a { color: #f4f4f4; font-weight: 500; transition: color 0.3s ease; }
+        .main-nav ul li a:hover { color: #f0b90b; }
+        .main-nav .btn { margin-left: 20px; padding: 8px 20px; }
+        /* --- Hero Image --- */
+        .hero-image-section { padding: 0; line-height: 0; }
+        .hero-image-section img { width: 100%; height: auto; max-height: 65vh; object-fit: cover; }
+        /* --- Brand Intro --- */
+        .brand-intro { padding: 40px 0; text-align: center; }
+        .brand-logo img { max-width: 180px; margin: 0 auto 20px auto; }
+        .brand-intro h2 { font-size: 2.5rem; color: #333; margin-bottom: 10px; }
+        .brand-intro .subtitle { font-size: 1.1rem; font-weight: 500; color: #c8a46a; margin-bottom: 20px; }
+        .brand-intro p { max-width: 800px; margin: 0 auto; color: #666; }
+        /* --- Image Gallery Strip --- */
+        .image-gallery-strip { padding: 30px 0; background-color: #fff; }
+        .image-gallery-strip .container { display: flex; justify-content: space-between; gap: 15px; overflow-x: auto; padding-bottom: 10px; }
+        .gallery-item img { width: auto; height: 150px; border-radius: 5px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); object-fit: cover; }
+        /* --- About The Brand --- */
+        #about-brand .about-content { display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center; }
+        #about-brand h2 { margin-bottom: 20px; }
+        #about-brand img { border-radius: 8px; border: 4px solid #444; }
+        /* --- Signature Offerings --- */
+        #signature-offerings h2 { text-align: center; margin-bottom: 40px; }
+        #signature-offerings .subtitle { text-align: center; max-width: 700px; margin: -30px auto 40px auto; color: #ccc; }
+        .offering-card { text-align: center; }
+        .offering-card img { border-radius: 8px; margin-bottom: 15px; height: 220px; width: 100%; object-fit: cover; transition: transform 0.3s ease; }
+        .offering-card:hover img { transform: scale(1.03); }
+        .offering-card p { font-weight: 500; color: #f0b90b; font-size: 1.1rem; margin-top: 5px; }
+        /* --- Business Opportunities Banner --- */
+        .opportunities-banner { background-color: #f0b90b; color: #1a1a1a; padding: 15px 0; text-align: center; font-weight: 600; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 2px; white-space: nowrap; overflow: hidden; }
+        .opportunities-banner span { margin: 0 10px; opacity: 0.7; }
+        /* --- Why Choose Us --- */
+        #why-choose-us h2 { text-align: center; margin-bottom: 40px; }
+        .choice-box { border: 1px solid #ddd; border-radius: 8px; padding: 30px 20px; text-align: center; background-color: #fff; transition: box-shadow 0.3s ease; }
+        .choice-box:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .choice-icon { font-size: 2.5rem; color: #c8a46a; margin-bottom: 15px; font-weight: bold; /* Placeholder */ }
+        .choice-box h4 { color: #333; font-size: 1.2rem; margin-bottom: 10px; }
+        .choice-box p { font-size: 0.95rem; color: #666; margin-bottom: 0; }
+        /* --- Franchise Call-to-Action --- */
+        #franchise-cta { text-align: center; position: relative; padding-top: 80px; padding-bottom: 80px; }
+        #franchise-cta h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        #franchise-cta .subtitle { max-width: 700px; margin: 0 auto 40px auto; color: #666; }
+        .cta-image { position: absolute; max-width: 180px; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.15); border: 4px solid #fff; }
+        .cta-image-top { top: -60px; left: 50px; }
+        .cta-image-bottom { bottom: -60px; right: 50px; }
+        .cta-features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 40px; }
+        .feature-box { border: 1px solid #ddd; border-radius: 8px; padding: 25px 20px; background-color: #fff; text-align: center; transition: box-shadow 0.3s ease; }
+        .feature-box:hover { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .feature-box h4 { color: #333; font-size: 1.2rem; margin-bottom: 10px; }
+        .feature-box p { font-size: 0.95rem; color: #666; margin-bottom: 0; }
+        /* --- Contact Form Section (SPR) --- */
+        #contact-form-section { padding: 60px 0; }
+        #contact-form-section .contact-wrapper { display: grid; grid-template-columns: 1fr 1.5fr; gap: 50px; align-items: flex-start; }
+        .contact-info h3 { margin-bottom: 20px; font-size: 1.6rem; }
+        .contact-info p { margin-bottom: 25px; color: #666; }
+        .contact-details h4 { font-size: 1.1rem; margin-bottom: 8px; color: #444; }
+        .contact-details p { margin-bottom: 15px; font-size: 0.95rem; color: #777; line-height: 1.5; }
+        .contact-form form { background-color: #fff; padding: 30px; border-radius: 8px; border: 1px solid #e0e0e0; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; color: #555; }
+        .form-group input[type="text"], .form-group input[type="email"], .form-group input[type="tel"] { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; font-size: 1rem; font-family: inherit; }
+        .form-group input:focus { border-color: #f0b90b; outline: none; box-shadow: 0 0 0 2px rgba(240, 185, 11, 0.2); }
+        .contact-form .btn { width: 100%; background-color: #1a1a1a; color: #f0b90b; padding: 12px; font-size: 1.1rem; border-radius: 5px; }
+        .contact-form .btn:hover { background-color: #333; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        /* --- Footer (SPR) --- */
+        .main-footer { background-color: #1a1a1a; color: #ccc; padding: 50px 0 30px 0; font-size: 0.9rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 40px; }
+        .footer-col .footer-logo { font-size: 1.5rem; font-weight: 700; border: 2px solid #f0b90b; padding: 4px 8px; line-height: 1; background-color: #f0b90b; color: #1a1a1a; display: inline-block; margin-bottom: 15px; }
+        .footer-col h4 { color: #fff; margin-bottom: 15px; font-size: 1rem; font-weight: 600; }
+        .footer-col ul { list-style: none; } .footer-col ul li { margin-bottom: 10px; }
+        .footer-col ul li a { color: #ccc; transition: color 0.3s ease; }
+        .footer-col ul li a:hover { color: #f0b90b; }
+        .footer-bottom { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #444; font-size: 0.85rem; color: #aaa; }
+        /* --- Responsive (Same as previous) --- */
+        @media (max-width: 992px) {
+            .grid-2, .grid-3, .grid-4, .footer-grid, .cta-features { grid-template-columns: 1fr 1fr; }
+            #about-brand .about-content { grid-template-columns: 1fr; text-align: center; }
+            #about-brand img { max-width: 70%; margin: 30px auto 0 auto; }
+            #contact-form-section .contact-wrapper { grid-template-columns: 1fr; }
+            .form-grid { grid-template-columns: 1fr; }
+            #franchise-cta { padding-top: 20px; padding-bottom: 20px; }
+            .cta-image { display: none; }
+            .image-gallery-strip .container { justify-content: flex-start; }
+        }
+        @media (max-width: 768px) {
+            h2 { font-size: 1.8rem; }
+            .main-header .container { flex-direction: column; align-items: flex-start; }
+            .main-nav { margin-top: 15px; width: 100%; }
+            .main-nav ul { flex-direction: column; align-items: flex-start; width: 100%; }
+            .main-nav ul li { margin: 5px 0; width: 100%; }
+            .main-nav ul li a { display: block; padding: 5px 0; }
+            .main-nav .btn { margin: 10px 0 0 0; width: auto; }
+            .grid-2, .grid-3, .grid-4, .footer-grid, .cta-features { grid-template-columns: 1fr; }
+            .offering-card img { height: 250px; }
+            .footer-grid { text-align: center; }
+            .footer-col .footer-logo { margin: 0 auto 15px auto; }
+            .opportunities-banner { font-size: 1rem; letter-spacing: 1px; }
+            .brand-logo img { max-width: 140px; }
+            .brand-intro h2 { font-size: 2rem; }
+            #franchise-cta h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+     <!-- Header -->
+    <header class="main-header"> <div class="container"> <a href="#" class="logo">SPR</a> <nav class="main-nav"> <ul> <li><a href="#">Sign In</a></li> <li><a href="#">Contact Us</a></li> <li><a href="#" class="btn">Get Started</a></li> </ul> </nav> </div> </header>
+
+    <main>
+        <!-- Hero Image -->
+        <section class="hero-image-section"> <img src="https://via.placeholder.com/1500x500/cccccc/808080?text=FunzXtreme+Play+Area" alt="FunzXtreme Indoor Play Area"> </section>
+
+        <!-- Brand Intro -->
+        <section class="brand-intro section">
+            <div class="container">
+                <div class="brand-logo"> <img src="https://via.placeholder.com/180x80/eeeeee/aaaaaa?text=FunzXtreme+Logo" alt="FunzXtreme Logo"> </div>
+                <h2>FUNZXTREME</h2>
+                <p class="subtitle">Where Adventure Meets Endless Fun</p>
+                <p> The ultimate indoor entertainment destination for kids and families! FunzXtreme offers a vibrant mix of play structures, arcade games, party zones, and exciting activities designed to spark joy and create lasting memories in a safe, engaging environment. </p>
+            </div>
+        </section>
+
+         <!-- Image Gallery Strip -->
+        <section class="image-gallery-strip">
+            <div class="container">
+                <div class="gallery-item"><img src="https://via.placeholder.com/250x150/cccccc/808080?text=Arcade+Games" alt="Arcade Games Area"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/250x150/cccccc/808080?text=Soft+Play+Zone" alt="Soft Play Zone"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/250x150/cccccc/808080?text=Toddler+Area" alt="Toddler Play Area"></div>
+                <div class="gallery-item"><img src="https://via.placeholder.com/250x150/cccccc/808080?text=Climbing+Wall" alt="Climbing Wall"></div>
+                 <div class="gallery-item"><img src="https://via.placeholder.com/250x150/cccccc/808080?text=Ball+Pit" alt="Ball Pit Fun"></div>
+            </div>
+        </section>
+
+        <!-- About The Brand -->
+        <section id="about-brand" class="section section-dark">
+            <div class="container about-content">
+                 <div class="text-content">
+                    <h2>ABOUT THE BRAND</h2>
+                    <p>FunzXtreme was born from a desire to create dynamic, safe, and stimulating play spaces for children of all ages. We believe in the power of active play for development and happiness. Our centers are meticulously designed with diverse attractions to cater to different interests and energy levels.</p>
+                    <p>Safety is paramount. We adhere to the highest safety standards in equipment and operations, ensuring parents have peace of mind while kids explore and have fun. FunzXtreme aims to be the go-to spot for everyday fun, birthday parties, and group events.</p>
+                </div>
+                <div class="image-content"> <img src="https://via.placeholder.com/500x350/555555/eeeeee?text=FunzXtreme+Exterior+or+Large+Play+Structure" alt="FunzXtreme Center View"> </div>
+            </div>
+        </section>
+
+        <!-- Signature Offerings -->
+        <section id="signature-offerings" class="section section-dark">
+            <div class="container">
+                 <h2>SIGNATURE OFFERINGS</h2>
+                 <p class="subtitle">Exciting zones and activities guaranteed to thrill every visitor!</p>
+                 <div class="grid-3">
+                     <div class="offering-card"> <img src="https://via.placeholder.com/400x220/777777/eeeeee?text=Multi-Level+Play+Structure" alt="Multi-Level Play Structure"> <p>Epic Play Structures</p> </div>
+                     <div class="offering-card"> <img src="https://via.placeholder.com/400x220/777777/eeeeee?text=Birthday+Party+Zone" alt="Birthday Party Setup"> <p>Awesome Birthday Parties</p> </div>
+                     <div class="offering-card"> <img src="https://via.placeholder.com/400x220/777777/eeeeee?text=Arcade+Gaming+Area" alt="Arcade Gaming Zone"> <p>Exciting Arcade Games</p> </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Business Opportunities Banner -->
+        <section class="opportunities-banner"> BUSINESS OPPORTUNITIES <span>+</span> BUSINESS OPPORTUNITIES <span>+</span> BUSINESS OPPORTUNITIES </section>
+
+         <!-- Why Choose Us -->
+        <section id="why-choose-us" class="section section-light-gray">
+            <div class="container">
+                <h2>WHY CHOOSE US</h2>
+                <div class="grid-3">
+                    <div class="choice-box"> <div class="choice-icon">[Icon]</div> <h4>Safe Entertainment</h4> <p>Top priority on safety standards, equipment maintenance, and staff supervision.</p> </div>
+                    <div class="choice-box"> <div class="choice-icon">[Icon]</div> <h4>Fun For All Ages</h4> <p>Diverse attractions catering to toddlers, kids, and even accompanying adults.</p> </div>
+                    <div class="choice-box"> <div class="choice-icon">[Icon]</div> <h4>Engaging & Family-Friendly</h4> <p>A welcoming atmosphere designed for family enjoyment and interaction.</p> </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Franchise Call-to-Action -->
+        <section id="franchise-cta" class="section">
+            <div class="container">
+                 <img src="https://via.placeholder.com/180x180/cccccc/808080?text=Kids+Playing+1" alt="Kids Having Fun" class="cta-image cta-image-top">
+                 <img src="https://via.placeholder.com/180x180/cccccc/808080?text=Kids+Playing+2" alt="More Kids Playing" class="cta-image cta-image-bottom">
+                 <h2>Join The FunzXtreme Franchise Family</h2>
+                 <p class="subtitle"> Bring the excitement of FunzXtreme to your community! Tap into the growing market for family entertainment centers with our popular brand, proven operational model, and comprehensive franchise support system. </p>
+                 <div class="cta-features grid-3">
+                    <div class="feature-box"> <h4>Proven Business Model</h4> <p>Benefit from our experience in center design, operations, and marketing.</p> </div>
+                    <div class="feature-box"> <h4>Comprehensive Training</h4> <p>Extensive training covering all aspects of running a FunzXtreme center.</p> </div>
+                    <div class="feature-box"> <h4>Strong Brand Appeal</h4> <p>Leverage a brand known for fun, safety, and quality family entertainment.</p> </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact-form-section" class="section section-light-gray"> <div class="container contact-wrapper"> <div class="contact-info"> <h3>Become an Entrepreneur Today – Grow Your Business with SPR Global</h3> <p>Interested in the FunzXtreme franchise? Connect with our parent company, SPR Global, for details on investment, territories, and the support we offer. Fill out the form to start your journey in the fun business!</p> <div class="contact-details"> <h4>Corporate Office (SPR Global)</h4> <p>123 Global Avenue,<br>Innovation City, IN 45678</p> <h4>Email</h4> <p>franchise@sprglobal.com</p> <h4>Phone</h4> <p>+1 (555) 123-4567</p> </div> </div> <div class="contact-form"> <form action="#" method="POST"> <div class="form-grid"> <div class="form-group"> <label for="name">Name*</label> <input type="text" id="name" name="name" required> </div> <div class="form-group"> <label for="phone">Phone Number*</label> <input type="tel" id="phone" name="phone" required> </div> </div> <div class="form-group"> <label for="email">Email*</label> <input type="email" id="email" name="email" required> </div> <div class="form-group"> <label for="subject">Subject (Optional)</label> <input type="text" id="subject" name="subject" placeholder="e.g., FunzXtreme Franchise Inquiry"> </div> <button type="submit" class="btn">Submit Inquiry</button> </form> </div> </div> </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer"> <div class="container"> <div class="footer-grid"> <div class="footer-col"> <a href="#" class="footer-logo">SPR</a> <p>SPR Global: Empowering entrepreneurs worldwide...</p> </div> <div class="footer-col"> <h4>QUICK LINKS</h4> <ul> <li><a href="#">SPR Home</a></li> <li><a href="#">About SPR</a></li> <li><a href="#">FunzXtreme</a></li> <li><a href="#">Other Ventures</a></li> <li><a href="#">Contact Us</a></li> </ul> </div> <div class="footer-col"> <h4>LEGAL</h4> <ul> <li><a href="#">Privacy Policy</a></li> <li><a href="#">Terms of Service</a></li> <li><a href="#">Franchise Disclaimer</a></li> <li><a href="#">Cookie Policy</a></li> </ul> </div> <div class="footer-col"> <h4>CONTACT (SPR GLOBAL)</h4> <p>123 Global Avenue,<br>Innovation City, IN 45678</p> <p>Email: info@sprglobal.com<br>Phone: +1 (555) 123-4567</p> </div> </div> <div class="footer-bottom"> <p>© 2023 SPR Global & FunzXtreme. All Rights Reserved.</p> </div> </div> </footer>
+    <script> </script>
+</body>
+</html>

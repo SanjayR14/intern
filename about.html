@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SPR Global</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- Global Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        h2 { font-size: 2.2rem; }
+        h3 { font-size: 1.5rem; }
+
+        p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        a {
+            text-decoration: none;
+            color: #f0b90b; /* Accent color */
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 25px;
+            background-color: #f0b90b; /* Accent color */
+            color: #1a1a1a; /* Dark text on button */
+            border: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #d4a30a; /* Darker accent */
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-dark {
+            background-color: #1a1a1a; /* Dark background */
+            color: #f4f4f4;
+        }
+        .section-dark h2, .section-dark h3, .section-dark h4 {
+           color: #fff;
+        }
+        .section-dark p {
+           color: #ccc;
+        }
+
+        .section-light-gray {
+            background-color: #f8f9fa;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            align-items: center;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- Header / Navigation --- */
+        .main-header {
+            background-color: #1a1a1a;
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            border: 2px solid #f0b90b;
+            padding: 5px 10px;
+            line-height: 1;
+            background-color: #f0b90b;
+            color: #1a1a1a;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .main-nav ul li {
+            margin-left: 20px;
+        }
+
+        .main-nav ul li a {
+            color: #f4f4f4;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav ul li a:hover {
+            color: #f0b90b;
+        }
+
+        .main-nav .btn {
+            margin-left: 20px;
+            padding: 8px 20px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            background: url('https://via.placeholder.com/1500x600/cccccc/808080?text=SPR+Global+Office+View') no-repeat center center/cover;
+            height: 60vh; /* Adjust height as needed */
+            min-height: 400px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: #fff;
+        }
+
+        .hero::before { /* Optional overlay for text readability */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative; /* To be above the overlay */
+            z-index: 1;
+            padding: 40px 0; /* Add padding to avoid text touching edges */
+        }
+        .hero-content .container {
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             gap: 30px;
+        }
+
+        .hero-text {
+            max-width: 50%;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 500px;
+            color: #eee;
+        }
+
+        /* --- Mission/Vision Section --- */
+        #mission-vision {
+            background-color: #222; /* Slightly lighter dark */
+            color: #f4f4f4;
+            padding: 40px 0;
+        }
+
+        .mission-vision-box {
+            background-color: #2a2a2a; /* Even lighter dark */
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid #f0b90b;
+        }
+
+        .mission-vision-box h3 {
+             color: #fff;
+             margin-bottom: 15px;
+             display: flex;
+             align-items: center;
+        }
+        .mission-vision-box h3::before { /* Placeholder for icon */
+            content: '◎'; /* Replace with actual icon */
+            color: #f0b90b;
+            font-size: 1.8rem;
+            margin-right: 15px;
+        }
+         .mission-vision-box p {
+             color: #ccc;
+         }
+
+        /* --- Our Story Section --- */
+        #our-story .story-content {
+             display: flex;
+             align-items: center;
+             gap: 40px;
+        }
+         #our-story img {
+             max-width: 45%;
+             border-radius: 8px;
+         }
+         #our-story .text-content {
+             flex: 1;
+         }
+
+        /* --- What We Offer Section --- */
+        #what-we-offer h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        #what-we-offer .subtitle {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #aaa;
+        }
+
+        .offer-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #444; /* Subtle separator */
+        }
+        .offer-item:last-child {
+            border-bottom: none;
+        }
+
+        .offer-logo img {
+            max-height: 40px; /* Adjust logo size */
+            width: auto;
+            filter: brightness(0) invert(1); /* Make logos white */
+            margin-right: 20px;
+        }
+         .offer-details {
+             flex-grow: 1;
+             display: flex;
+             align-items: center;
+             gap: 15px;
+         }
+         .offer-details p {
+             margin: 0;
+             color: #f4f4f4;
+         }
+        .offer-item .btn {
+            background-color: #333;
+            color: #f0b90b;
+            padding: 5px 15px;
+            font-size: 0.9rem;
+        }
+        .offer-item .btn:hover {
+            background-color: #444;
+        }
+
+
+        /* --- Founder's Message Section --- */
+        #founders-message .founder-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        #founders-message .text-content {
+            flex: 1;
+        }
+         #founders-message img {
+             max-width: 45%;
+             border-radius: 8px;
+         }
+        .founder-name {
+            margin-top: 20px;
+            font-weight: 600;
+            color: #f0b90b;
+        }
+        .founder-title {
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* --- Meet The Team Section --- */
+         #meet-the-team h2, #why-spr h2 {
+             text-align: center;
+             margin-bottom: 15px;
+         }
+         #meet-the-team .subtitle, #why-spr .subtitle {
+             text-align: center;
+             max-width: 700px;
+             margin: 0 auto 40px auto;
+             color: #777;
+         }
+
+         .team-member {
+             background-color: #fff;
+             border: 1px solid #e0e0e0;
+             border-radius: 8px;
+             overflow: hidden;
+             text-align: center;
+             padding-bottom: 20px;
+             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+         }
+         .team-member img {
+             width: 100%;
+             height: 250px; /* Fixed height for uniformity */
+             object-fit: cover;
+             margin-bottom: 15px;
+         }
+          .team-member h4 {
+              font-size: 1.1rem;
+              margin-bottom: 5px;
+              color: #333;
+          }
+          .team-member p {
+              font-size: 0.9rem;
+              color: #777;
+              margin-bottom: 0;
+          }
+
+        /* --- Why SPR Global Section --- */
+        .why-spr-card {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .why-spr-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+        .why-spr-card .content {
+            padding: 20px;
+        }
+        .why-spr-card h4 {
+             font-size: 1.2rem;
+             margin-bottom: 10px;
+             color: #333;
+        }
+        .why-spr-card p {
+             font-size: 0.95rem;
+             color: #666;
+             margin-bottom: 0;
+        }
+
+
+        /* --- Contact Form Section --- */
+        #contact-form-section .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr; /* Adjust ratio as needed */
+            gap: 50px;
+            align-items: flex-start; /* Align items to the top */
+        }
+        .contact-info h3 {
+            margin-bottom: 20px;
+        }
+        .contact-info p {
+            margin-bottom: 25px;
+            color: #666;
+        }
+        .contact-details h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #444;
+        }
+        .contact-details p {
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            color: #777;
+        }
+
+        .contact-form form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #e0e0e0;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: #555;
+        }
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="tel"]:focus {
+             border-color: #f0b90b;
+             outline: none;
+             box-shadow: 0 0 0 2px rgba(240, 185, 11, 0.2);
+        }
+         .contact-form .btn {
+             width: 100%;
+             background-color: #1a1a1a;
+             color: #f0b90b;
+             padding: 12px;
+             font-size: 1.1rem;
+         }
+         .contact-form .btn:hover {
+             background-color: #333;
+         }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        /* --- Footer --- */
+        .main-footer {
+            background-color: #1a1a1a;
+            color: #ccc;
+            padding: 50px 0 30px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .footer-col .footer-logo {
+             font-size: 1.5rem;
+             font-weight: 700;
+             color: #fff;
+             border: 2px solid #f0b90b;
+             padding: 4px 8px;
+             line-height: 1;
+             background-color: #f0b90b;
+             color: #1a1a1a;
+             display: inline-block;
+             margin-bottom: 15px;
+        }
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        .footer-col ul li a {
+            color: #ccc;
+            transition: color 0.3s ease;
+        }
+        .footer-col ul li a:hover {
+            color: #f0b90b;
+        }
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 0.85rem;
+            color: #aaa;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .grid-2, .grid-3, .grid-4, .footer-grid {
+                grid-template-columns: 1fr 1fr; /* Adjust grid for tablets */
+            }
+             .hero-content .container { flex-direction: column; text-align: center; }
+             .hero-text { max-width: 100%; }
+             #our-story .story-content, #founders-message .founder-content { flex-direction: column; text-align: center; }
+             #our-story img, #founders-message img { max-width: 70%; margin: 0 auto 30px auto; }
+             #contact-form-section .contact-wrapper { grid-template-columns: 1fr; }
+             .form-grid { grid-template-columns: 1fr; } /* Stack form fields */
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            .hero { height: auto; min-height: 300px; padding: 40px 0;}
+            .main-header .container { flex-direction: column; align-items: flex-start;}
+            .main-nav { margin-top: 15px; width: 100%;}
+            .main-nav ul { flex-direction: column; align-items: flex-start; width: 100%;}
+            .main-nav ul li { margin: 5px 0; width: 100%;}
+            .main-nav ul li a { display: block; padding: 5px 0;}
+            .main-nav .btn { margin: 10px 0 0 0; width: auto;}
+            .grid-2, .grid-3, .grid-4, .footer-grid {
+                grid-template-columns: 1fr; /* Stack everything */
+            }
+            .offer-item { flex-direction: column; align-items: flex-start; gap: 10px; }
+            .offer-details { flex-direction: column; align-items: flex-start;}
+            .offer-item .btn { align-self: flex-start; }
+            .team-member img { height: 280px; } /* Slightly taller on mobile */
+            .why-spr-card img { height: 200px; }
+            .footer-grid { text-align: center; }
+            .footer-col .footer-logo { margin: 0 auto 15px auto; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">SPR</a>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Sign In</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#" class="btn">Get Started</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="container">
+                    <div class="hero-text">
+                        <h1>WELCOME TO SPR GLOBAL</h1>
+                    </div>
+                    <div>
+                        <p>At SPR Global, we're dedicated to empowering ambitious entrepreneurs by providing the resources, mentorship, and global network needed to thrive. Discover our story, values, and the opportunities we create for businesses worldwide.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission / Vision Section -->
+        <section id="mission-vision" class="section-dark">
+            <div class="container grid-2">
+                <div class="mission-vision-box">
+                    <h3>Our Mission</h3>
+                    <p>To foster entrepreneurial success by providing unparalleled support, resources, and global connections, enabling businesses to achieve sustainable growth and impact.</p>
+                </div>
+                <div class="mission-vision-box">
+                    <h3>Our Vision</h3>
+                    <p>To be the leading global platform for entrepreneurs, recognized for cultivating innovation, driving economic progress, and building a worldwide community of successful ventures.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section id="our-story" class="section">
+            <div class="container story-content">
+                <img src="https://via.placeholder.com/500x350/eeeeee/aaaaaa?text=Team+Meeting" alt="Our Team">
+                <div class="text-content">
+                    <h2>OUR STORY</h2>
+                    <p>SPR Global started with a simple yet powerful idea: to create a dynamic ecosystem where innovation thrives and entrepreneurs flourish. Founded by visionaries with deep roots in business development, we began our journey by connecting promising startups with strategic resources and mentorship.</p>
+                    <p>Through the years, we've evolved, expanding our reach across multiple industries and continents. We pride ourselves on our commitment to nurturing talent, fostering collaboration, and driving success through ethical practices and a relentless pursuit of excellence.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Offer Section -->
+        <section id="what-we-offer" class="section section-dark">
+            <div class="container">
+                <h2>WHAT WE OFFER</h2>
+                <p class="subtitle">A diverse portfolio of ventures, each supported by our commitment to excellence and innovation.</p>
+
+                <div class="offer-list">
+                    <div class="offer-item">
+                        <div class="offer-details">
+                            <div class="offer-logo"><img src="https://via.placeholder.com/150x40/ffffff/000000?text=Cheap+Best+Logo" alt="Cheap & Best Logo"></div>
+                            <p>A spectrum of contents. Qualitative claims.</p>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                    <div class="offer-item">
+                         <div class="offer-details">
+                            <div class="offer-logo"><img src="https://via.placeholder.com/150x40/ffffff/000000?text=Ashilas+Logo" alt="Ashilas Logo"></div>
+                            <p>Offers 100% genuine products for men.</p>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                    <div class="offer-item">
+                         <div class="offer-details">
+                            <div class="offer-logo"><img src="https://via.placeholder.com/100x40/ffffff/000000?text=SLAM+Logo" alt="Slam Logo"></div>
+                            <p>A premium fitness destination.</p>
+                         </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                     <div class="offer-item">
+                         <div class="offer-details">
+                            <div class="offer-logo"><img src="https://via.placeholder.com/100x40/ffffff/000000?text=Toss+Logo" alt="Toss Logo"></div>
+                            <p>Fulfilling celebratory food fantasies.</p>
+                         </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                     <div class="offer-item">
+                        <div class="offer-details">
+                            <div class="offer-logo"><img src="https://via.placeholder.com/120x40/ffffff/000000?text=Zouks+Logo" alt="Zouks Logo"></div>
+                            <p>A global culinary journey.</p>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founder's Message Section -->
+        <section id="founders-message" class="section section-dark">
+            <div class="container founder-content">
+                <div class="text-content">
+                    <h2>FOUNDER'S MESSAGE</h2>
+                    <p>At SPR Global, our foundation is built on the belief that entrepreneurship is a powerful force for positive change. We started this journey with a commitment to support aspiring business leaders, providing them not just with capital, but with mentorship, strategic guidance, and access to a network that spans the globe.</p>
+                    <p>We've seen incredible talent emerge and thrive within our ecosystem. Our success is measured by the success of the entrepreneurs we partner with. We remain dedicated to fostering innovation, integrity, and long-term growth for every venture under the SPR Global umbrella.</p>
+                    <p class="founder-name">Founder's Name</p>
+                    <p class="founder-title">Founder and CEO, SPR Global</p>
+                </div>
+                 <img src="https://via.placeholder.com/500x400/eeeeee/aaaaaa?text=Founder+Photo" alt="Founder's Message">
+            </div>
+        </section>
+
+        <!-- Meet The Team Section -->
+        <section id="meet-the-team" class="section section-light-gray">
+            <div class="container">
+                <h2>MEET THE TEAM</h2>
+                <p class="subtitle">Our dedicated team brings a wealth of experience, diverse perspectives, and a shared passion for entrepreneurial success. Get to know the leaders driving SPR Global forward.</p>
+                <div class="grid-4">
+                    <div class="team-member">
+                        <img src="https://via.placeholder.com/300x250/dddddd/999999?text=Team+Member+1" alt="Team Member 1">
+                        <h4>Name of The Person</h4>
+                        <p>Designation</p>
+                    </div>
+                    <div class="team-member">
+                         <img src="https://via.placeholder.com/300x250/dddddd/999999?text=Team+Member+2" alt="Team Member 2">
+                        <h4>Name of The Person</h4>
+                        <p>Designation</p>
+                    </div>
+                     <div class="team-member">
+                         <img src="https://via.placeholder.com/300x250/dddddd/999999?text=Team+Member+3" alt="Team Member 3">
+                        <h4>Name of The Person</h4>
+                        <p>Designation</p>
+                    </div>
+                     <div class="team-member">
+                         <img src="https://via.placeholder.com/300x250/dddddd/999999?text=Team+Member+4" alt="Team Member 4">
+                        <h4>Name of The Person</h4>
+                        <p>Designation</p>
+                    </div>
+                    <!-- Add more team members as needed -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Why SPR Global Section -->
+        <section id="why-spr" class="section">
+            <div class="container">
+                 <h2 >WHY SPR GLOBAL?</h2>
+                 <div class="grid-3">
+                     <div class="why-spr-card">
+                         <img src="https://via.placeholder.com/400x180/eeeeee/aaaaaa?text=Handshake" alt="Entrepreneurial Support">
+                         <div class="content">
+                             <h4>Entrepreneurial Support</h4>
+                             <p>Comprehensive resources and mentorship to fuel your growth and navigate challenges.</p>
+                         </div>
+                     </div>
+                      <div class="why-spr-card">
+                         <img src="https://via.placeholder.com/400x180/eeeeee/aaaaaa?text=Diverse+Team" alt="Diverse Opportunities">
+                          <div class="content">
+                             <h4>Diverse Opportunities</h4>
+                             <p>Access a wide range of industries and markets through our extensive global network.</p>
+                          </div>
+                     </div>
+                      <div class="why-spr-card">
+                         <img src="https://via.placeholder.com/400x180/eeeeee/aaaaaa?text=Quality+Check" alt="Commitment to Excellence">
+                           <div class="content">
+                             <h4>Commitment to Excellence</h4>
+                             <p>We uphold the highest standards in service, ethics, and sustainable business practices.</p>
+                           </div>
+                     </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact-form-section" class="section section-light-gray">
+            <div class="container contact-wrapper">
+                <div class="contact-info">
+                    <h3>Become an Entrepreneur Today – Grow Your Business with SPR Global</h3>
+                    <p>Ready to take the next step? Connect with us to explore partnership opportunities, learn more about our portfolio, or discuss how SPR Global can help accelerate your business journey. Fill out the form or use the contact details below.</p>
+                    <div class="contact-details">
+                        <h4>Corporate Office</h4>
+                        <p>123 Global Avenue,<br>Innovation City, IN 45678</p>
+                        <h4>Email</h4>
+                        <p>info@sprglobal.com</p>
+                         <h4>Phone</h4>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                     <form action="#" method="POST">
+                         <div class="form-grid">
+                             <div class="form-group">
+                                 <label for="name">Name*</label>
+                                 <input type="text" id="name" name="name" required>
+                             </div>
+                             <div class="form-group">
+                                 <label for="phone">Phone Number*</label>
+                                 <input type="tel" id="phone" name="phone" required>
+                             </div>
+                         </div>
+                         <div class="form-group">
+                            <label for="email">Email*</label>
+                            <input type="email" id="email" name="email" required>
+                         </div>
+                         <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject">
+                         </div>
+                          <!-- Could add textarea for message if needed -->
+                         <button type="submit" class="btn">Submit</button>
+                     </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="footer-logo">SPR</a>
+                    <p>Empowering entrepreneurs worldwide with resources, mentorship, and a global network for sustainable growth and innovation.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>QUICK LINKS</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-col">
+                    <h4>LEGAL</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-col">
+                    <h4>CONTACT INFO</h4>
+                    <p>123 Global Avenue,<br>Innovation City, IN 45678</p>
+                    <p>Email: info@sprglobal.com<br>Phone: +1 (555) 123-4567</p>
+                     <!-- Add social media icons here -->
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 SPR Global. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Optional JavaScript can go here -->
+    <script>
+        // Basic JS can be added here for things like mobile menu toggle, form validation, etc.
+        // Example: console.log("SPR Global page loaded");
+    </script>
+
+</body>
+</html>
